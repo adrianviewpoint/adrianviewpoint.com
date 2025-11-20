@@ -8,6 +8,10 @@ interface Props {
 }
 
 const { title, description = 'A modern website built with Astro and Tailwind CSS' } = Astro.props;
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+];
 ---
 
 <!doctype html>
@@ -36,7 +40,7 @@ const { title, description = 'A modern website built with Astro and Tailwind CSS
     </script>
   </head>
   <body class="min-h-screen">
-    <SiteHeader />
+    <SiteHeader links={navLinks} />
     
     <main id="main">
       <slot />

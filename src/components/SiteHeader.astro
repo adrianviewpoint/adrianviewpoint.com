@@ -4,9 +4,15 @@ import ThemeToggle from './ThemeToggle.astro';
 interface Props {
   brand?: string;
   class?: string; // Extra classes appended to header wrapper
+  links?: Array<{
+    label: string;
+    href: string;
+    external?: boolean;
+  }>;
 }
 
-const { brand = 'Adrian Viewpoint', class: extraClass = '' } = Astro.props;
+const { brand = 'Adrian Viewpoint', class: extraClass = '', links = [] } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
 
 <header class={`sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm ${extraClass}`.trim()}>
@@ -17,22 +23,52 @@ const { brand = 'Adrian Viewpoint', class: extraClass = '' } = Astro.props;
         {brand}
       </div>
       <div class="flex items-center space-x-2">
+        {links.length > 0 && (
+          <ul class="hidden md:flex items-center space-x-4 mr-2">
+            {links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                  class={`text-sm hover:underline ${currentPath === link.href ? 'font-bold text-brand-burgundy' : ''}`.trim()}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
         <ThemeToggle />
-        <button id="menu-button" aria-expanded="false" aria-label="Toggle menu" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-burgundy">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path class="line line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
-            <path class="line line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
-            <path class="line line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
-          </svg>
-        </button>
+        {links.length > 0 && (
+          <button id="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-burgundy">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path class="line line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+              <path class="line line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+              <path class="line line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
+            </svg>
+          </button>
+        )}
       </div>
     </div>
-    <div id="mobile-menu" class="hidden mt-4">
-      <ul class="flex flex-col space-y-2">
-        <li><a href="/" class="block py-2 px-4 rounded hover:bg-accent">Home</a></li>
-        <li><a href="/about" class="block py-2 px-4 rounded hover:bg-accent">About</a></li>
-      </ul>
-    </div>
+    {links.length > 0 && (
+      <div id="mobile-menu" class="hidden mt-4 md:hidden">
+        <ul class="flex flex-col space-y-2">
+          {links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
+                class={`block py-2 px-4 rounded hover:bg-accent ${currentPath === link.href ? 'bg-accent font-bold' : ''}`.trim()}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
   </nav>
 </header>
 
