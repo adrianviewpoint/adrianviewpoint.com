@@ -1,0 +1,66 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  brand?: string;
+  class?: string; // Extra classes appended to header wrapper
+}
+
+const { brand = 'Adrian Viewpoint', class: extraClass = '' } = Astro.props;
+---
+
+<header class={`sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm ${extraClass}`.trim()}>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-background border px-2 py-1 rounded shadow z-60">Skip to content</a>
+  <nav aria-label="Main navigation" class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold text-brand-burgundy">
+        {brand}
+      </div>
+      <div class="flex items-center space-x-2">
+        <ThemeToggle />
+        <button id="menu-button" aria-expanded="false" aria-label="Toggle menu" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-burgundy">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path class="line line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+            <path class="line line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+            <path class="line line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden mt-4">
+      <ul class="flex flex-col space-y-2">
+        <li><a href="/" class="block py-2 px-4 rounded hover:bg-accent">Home</a></li>
+        <li><a href="/about" class="block py-2 px-4 rounded hover:bg-accent">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .open .line1 {
+    transform: rotate(45deg) translateY(6px);
+  }
+  .open .line2 {
+    opacity: 0;
+  }
+  .open .line3 {
+    transform: rotate(-45deg) translateY(-6px);
+  }
+</style>
+
+<script>
+  const button = document.getElementById('menu-button') as HTMLButtonElement;
+  const menu = document.getElementById('mobile-menu') as HTMLDivElement;
+  if (button && menu) {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.classList.toggle('open');
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

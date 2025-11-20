@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import ThemeToggle from '../components/ThemeToggle.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
 interface Props {
   title: string;
@@ -36,16 +36,9 @@ const { title, description = 'A modern website built with Astro and Tailwind CSS
     </script>
   </head>
   <body class="min-h-screen">
-  <header class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
-      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-xl font-bold text-brand-burgundy">
-          Adrian Viewpoint
-        </div>
-        <ThemeToggle />
-      </nav>
-    </header>
+    <SiteHeader />
     
-    <main>
+    <main id="main">
       <slot />
     </main>
     
