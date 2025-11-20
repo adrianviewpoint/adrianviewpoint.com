@@ -1,0 +1,43 @@
+---
+// No frontmatter needed
+---
+
+<div class="hamburger-menu">
+  <button aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-burgundy">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path class="line line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+      <path class="line line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+      <path class="line line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
+    </svg>
+  </button>
+</div>
+
+<style>
+  .line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .open .line1 {
+    transform: rotate(45deg) translateY(6px);
+  }
+  .open .line2 {
+    opacity: 0;
+  }
+  .open .line3 {
+    transform: rotate(-45deg) translateY(-6px);
+  }
+</style>
+
+<script>
+  let isOpen = false;
+  const button = document.querySelector('.hamburger-menu button') as HTMLButtonElement;
+  if (button) {
+    button.addEventListener('click', () => {
+      isOpen = !isOpen;
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.classList.toggle('open');
+      // Dispatch custom event to parent
+      button.dispatchEvent(new CustomEvent('toggle', { bubbles: true }));
+    });
+  }
+</script>

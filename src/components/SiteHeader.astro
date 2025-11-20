@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import HamburgerMenu from './HamburgerMenu.astro';
 
 interface Props {
   brand?: string;
@@ -41,13 +42,7 @@ const currentPath = Astro.url.pathname;
         )}
         <ThemeToggle />
         {links.length > 0 && (
-          <button id="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" class="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-burgundy">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path class="line line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
-              <path class="line line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
-              <path class="line line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
-            </svg>
-          </button>
+            <HamburgerMenu />
         )}
       </div>
     </div>
@@ -60,7 +55,7 @@ const currentPath = Astro.url.pathname;
                 href={link.href}
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
-                class={`block py-2 px-4 rounded hover:bg-accent ${currentPath === link.href ? 'bg-accent font-bold' : ''}`.trim()}
+                class={`block py-2 px-4 rounded hover:bg-accent ${currentPath === link.href ? 'font-bold text-brand-burgundy' : ''}`.trim()}
               >
                 {link.label}
               </a>
@@ -72,30 +67,13 @@ const currentPath = Astro.url.pathname;
   </nav>
 </header>
 
-<style>
-  .line {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
-  }
-  .open .line1 {
-    transform: rotate(45deg) translateY(6px);
-  }
-  .open .line2 {
-    opacity: 0;
-  }
-  .open .line3 {
-    transform: rotate(-45deg) translateY(-6px);
-  }
-</style>
+
 
 <script>
-  const button = document.getElementById('menu-button') as HTMLButtonElement;
+  const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLElement;
   const menu = document.getElementById('mobile-menu') as HTMLDivElement;
-  if (button && menu) {
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!expanded));
-      button.classList.toggle('open');
+  if (hamburgerMenu && menu) {
+    hamburgerMenu.addEventListener('toggle', () => {
       menu.classList.toggle('hidden');
     });
   }
