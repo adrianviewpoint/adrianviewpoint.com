@@ -1,0 +1,30 @@
+---
+interface Props {
+  link: {
+    label: string;
+    href: string;
+    external?: boolean;
+  };
+  currentPath: string;
+  variant: 'desktop' | 'mobile';
+}
+
+const { link, currentPath, variant } = Astro.props;
+
+const variantClasses = {
+  desktop: 'text-sm hover:underline',
+  mobile: 'block py-2 px-4 rounded hover:bg-accent'
+};
+
+const baseClass = variantClasses[variant];
+const activeClass = currentPath === link.href ? 'font-bold text-brand-burgundy' : '';
+---
+
+<a
+  href={link.href}
+  target={link.external ? '_blank' : undefined}
+  rel={link.external ? 'noopener noreferrer' : undefined}
+  class={`${baseClass} ${activeClass}`.trim()}
+>
+  {link.label}
+</a>

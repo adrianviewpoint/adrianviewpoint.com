@@ -1,6 +1,7 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 import HamburgerMenu from './HamburgerMenu.astro';
+import NavigationLink from './NavigationLink.astro';
 
 interface Props {
   brand?: string;
@@ -17,6 +18,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class={`sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm ${extraClass}`.trim()}>
+  <!-- Skip to content link for screen readers for accessibility purposes -->
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-background border px-2 py-1 rounded shadow z-60">Skip to content</a>
   <nav aria-label="Main navigation" class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
@@ -28,14 +30,7 @@ const currentPath = Astro.url.pathname;
           <ul class="hidden md:flex items-center space-x-4 mr-2">
             {links.map((link) => (
               <li>
-                <a
-                  href={link.href}
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noopener noreferrer' : undefined}
-                  class={`text-sm hover:underline ${currentPath === link.href ? 'font-bold text-brand-burgundy' : ''}`.trim()}
-                >
-                  {link.label}
-                </a>
+                <NavigationLink link={link} currentPath={currentPath} variant="desktop" />
               </li>
             ))}
           </ul>
@@ -51,14 +46,7 @@ const currentPath = Astro.url.pathname;
         <ul class="flex flex-col space-y-2">
           {links.map((link) => (
             <li>
-              <a
-                href={link.href}
-                target={link.external ? '_blank' : undefined}
-                rel={link.external ? 'noopener noreferrer' : undefined}
-                class={`block py-2 px-4 rounded hover:bg-accent ${currentPath === link.href ? 'font-bold text-brand-burgundy' : ''}`.trim()}
-              >
-                {link.label}
-              </a>
+              <NavigationLink link={link} currentPath={currentPath} variant="mobile" />
             </li>
           ))}
         </ul>
