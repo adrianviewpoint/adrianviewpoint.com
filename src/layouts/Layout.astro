@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'A modern website built with Astro and Tailwind CSS' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) -->
+    <script is:inline>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      
+      const theme = getThemePreference();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+  </head>
+  <body class="min-h-screen">
+  <header class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold text-brand-burgundy">
+          Adrian Viewpoint
+        </div>
+        <ThemeToggle />
+      </nav>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer class="border-t border-border mt-auto">
+      <div class="container mx-auto px-4 py-8 text-center text-secondary">
+        <p>&copy; {new Date().getFullYear()} Adrian Viewpoint. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
