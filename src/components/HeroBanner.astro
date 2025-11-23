@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -23,20 +25,10 @@ const { title, description, primaryButton, secondaryButton } = Astro.props;
 {(primaryButton || secondaryButton) && (
   <div class="flex gap-4">
     {primaryButton && (
-      <button
-        data-hero-primary
-        class="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
-      >
-        {primaryButton.label}
-      </button>
+      <Button variant="primary" label={primaryButton.label} dataAttr="hero-primary" />
     )}
     {secondaryButton && (
-      <button
-        data-hero-secondary
-        class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all"
-      >
-        {secondaryButton.label}
-      </button>
+      <Button variant="secondary" label={secondaryButton.label} dataAttr="hero-secondary" />
     )}
   </div>
 )}
@@ -45,19 +37,13 @@ const { title, description, primaryButton, secondaryButton } = Astro.props;
 <script>
   const heroSection = document.querySelector('[data-hero-banner]');
   if (heroSection) {
-    const primaryBtn = heroSection.querySelector('[data-hero-primary]');
-    const secondaryBtn = heroSection.querySelector('[data-hero-secondary]');
-
-    if (primaryBtn) {
-      primaryBtn.addEventListener('click', () => {
+    heroSection.addEventListener('buttonClick', (event) => {
+      const { dataAttr } = (event as CustomEvent).detail;
+      if (dataAttr === 'hero-primary') {
         heroSection.dispatchEvent(new CustomEvent('primaryClick', { bubbles: true }));
-      });
-    }
-
-    if (secondaryBtn) {
-      secondaryBtn.addEventListener('click', () => {
+      } else if (dataAttr === 'hero-secondary') {
         heroSection.dispatchEvent(new CustomEvent('secondaryClick', { bubbles: true }));
-      });
-    }
+      }
+    });
   }
 </script>

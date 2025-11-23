@@ -1,0 +1,33 @@
+---
+interface Props {
+  variant: 'primary' | 'secondary';
+  label: string;
+  dataAttr?: string;
+}
+
+const { variant, label, dataAttr = `button-${variant}` } = Astro.props;
+
+const variantClasses = {
+  primary: 'bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity',
+  secondary: 'border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all'
+};
+---
+
+<button
+  data-button={dataAttr}
+  class={variantClasses[variant]}
+>
+  {label}
+</button>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest('[data-button]');
+    if (button) {
+      button.dispatchEvent(new CustomEvent('buttonClick', { 
+        bubbles: true, 
+        detail: { dataAttr: button.getAttribute('data-button') } 
+      }));
+    }
+  });
+</script>

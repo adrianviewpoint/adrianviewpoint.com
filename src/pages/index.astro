@@ -17,23 +17,9 @@ import HeroBanner from '../components/HeroBanner.astro';
       }}
     />
 
-    <script>
-      const heroBanner = document.querySelector('[data-hero-banner]');
-
-      if (heroBanner) {
-        heroBanner.addEventListener('primaryClick', () => {
-          alert('Get Started clicked!');
-        });
-
-        heroBanner.addEventListener('secondaryClick', () => {
-          alert('Learn More clicked!');
-        });
-      }
-    </script>
-
     <!-- Brand Colors Showcase -->
     <section class="mb-20">
-  <h2 class="text-3xl font-bold mb-8 text-primary">Brand Colors</h2>
+      <h2 class="text-3xl font-bold mb-8 text-primary">Brand Colors</h2>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div class="space-y-2">
           <div class="bg-brand-charcoal h-24 rounded-lg"></div>
@@ -60,7 +46,7 @@ import HeroBanner from '../components/HeroBanner.astro';
 
     <!-- Feature Cards -->
     <section class="mb-20">
-  <h2 class="text-3xl font-bold mb-8 text-primary">Features</h2>
+      <h2 class="text-3xl font-bold mb-8 text-primary">Features</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-surface border border-border p-6 rounded-lg hover:border-primary transition-colors">
           <h3 class="text-xl font-semibold mb-3 text-primary">Responsive Design</h3>
@@ -85,7 +71,7 @@ import HeroBanner from '../components/HeroBanner.astro';
 
     <!-- Color Usage Examples -->
     <section>
-  <h2 class="text-3xl font-bold mb-8 text-primary">Design Elements</h2>
+      <h2 class="text-3xl font-bold mb-8 text-primary">Design Elements</h2>
       <div class="space-y-6">
         <div class="bg-surface border border-border-muted p-6 rounded-lg">
           <h3 class="text-lg font-semibold mb-2">Text Hierarchy</h3>
@@ -118,3 +104,17 @@ import HeroBanner from '../components/HeroBanner.astro';
     </section>
   </div>
 </Layout>
+
+<script>
+  const heroBanner = document.querySelector('[data-hero-banner]');
+
+  if (heroBanner) {
+    heroBanner.addEventListener('primaryClick', () => {
+      alert('Get Started clicked!');
+    });
+
+    heroBanner.addEventListener('secondaryClick', () => {
+      alert('Learn More clicked!');
+    });
+  }
+</script>
