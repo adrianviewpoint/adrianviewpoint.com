@@ -10,8 +10,8 @@
   --color-brand-gray: #707070;
   
   /* Semantic Light Mode Colors */
-  --color-background: #ffffff;
-  --color-surface: #f9f9f9;
+  --color-background: #f5f5f5;
+  --color-surface: var(--color-brand-beige);
   --color-primary: var(--color-brand-burgundy);
   --color-secondary: var(--color-brand-slate);
   --color-accent: var(--color-brand-charcoal);
@@ -27,9 +27,9 @@
   --color-background: #111111;
   --color-surface: var(--color-brand-charcoal);
   /* Custom tints for better contrast in dark mode */
-  --color-primary: #b30000; /* lighter burgundy */
+  --color-primary: var(--color-brand-beige); /* #b30000; /* lighter burgundy */
   --color-secondary: #7672a0; /* lighter slate */
-  --color-accent: var(--color-brand-beige);
+  --color-accent: var(--color-brand-slate);
   --color-text-primary: #f5f5f5;
   --color-text-secondary: var(--color-brand-beige);
   --color-text-muted: #9ca3af;

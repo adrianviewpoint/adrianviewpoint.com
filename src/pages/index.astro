@@ -1,26 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
 ---
 
 <Layout title="Welcome to Adrian Viewpoint">
   <div class="container mx-auto px-4 py-16">
     <!-- Hero Section -->
-    <section class="mb-20">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-primary">
-        Welcome to <span class="text-primary">Adrian Viewpoint</span>
-      </h1>
-  <p class="text-xl text-secondary mb-8 max-w-2xl">
-        A modern website showcasing your brand's unique color palette with seamless light and dark mode support.
-      </p>
-      <div class="flex gap-4">
-  <button class="bg-primary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
-          Get Started
-        </button>
-  <button class="border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all">
-          Learn More
-        </button>
-      </div>
-    </section>
+    <HeroBanner
+      title="Welcome to Adrian Viewpoint"
+      description="A modern website showcasing your brand's unique color palette with seamless light and dark mode support."
+      primaryButton={{
+        label: "Get Started"
+      }}
+      secondaryButton={{
+        label: "Learn More"
+      }}
+    />
+
+    <script>
+      const heroBanner = document.querySelector('[data-hero-banner]');
+
+      if (heroBanner) {
+        heroBanner.addEventListener('primaryClick', () => {
+          alert('Get Started clicked!');
+        });
+
+        heroBanner.addEventListener('secondaryClick', () => {
+          alert('Learn More clicked!');
+        });
+      }
+    </script>
 
     <!-- Brand Colors Showcase -->
     <section class="mb-20">
