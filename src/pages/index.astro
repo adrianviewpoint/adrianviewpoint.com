@@ -10,10 +10,10 @@ import HeroBanner from '../components/HeroBanner.astro';
       title="Geek Out on Code.<br>Master Your Money.<br>Build the Future."
       description="Explore coding adventures, financial wisdom, and creative projects. Join a community passionate about tech innovation and smart money moves—let's geek out together!"
       primaryButton={{
-        label: "Get Started"
+        label: "About"
       }}
       secondaryButton={{
-        label: "Learn More"
+        label: "Style Guide"
       }}
       rightImage="/hero-banner-art.svg"
     />
@@ -111,11 +111,11 @@ import HeroBanner from '../components/HeroBanner.astro';
 
   if (heroBanner) {
     heroBanner.addEventListener('primaryClick', () => {
-      alert('Get Started clicked!');
+      window.location.href = '/about';
     });
 
     heroBanner.addEventListener('secondaryClick', () => {
-      alert('Learn More clicked!');
+      window.location.href = '/styleguide';
     });
   }
 </script>
