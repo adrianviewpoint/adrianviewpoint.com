@@ -16,8 +16,12 @@ const variantClasses = {
   mobile: 'block py-2 px-4 rounded hover:bg-accent'
 };
 
+// Check if current path matches the link exactly or is a sub-page of it
+const isActive = currentPath === link.href || 
+  (link.href !== '/' && currentPath.startsWith(link.href + '/'));
+
 const baseClass = variantClasses[variant];
-const activeClass = currentPath === link.href ? 'font-bold text-primary underline' : '';
+const activeClass = isActive ? 'font-bold text-primary underline' : '';
 ---
 
 <a
