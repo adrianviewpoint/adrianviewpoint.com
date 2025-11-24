@@ -1,0 +1,64 @@
+---
+import StyleguideLayout from '../../layouts/StyleguideLayout.astro';
+import Button from '../../components/Button.astro';
+import HeroBanner from '../../components/HeroBanner.astro';
+---
+
+<StyleguideLayout title="Components">
+  <h1>Components</h1>
+    
+    <p class="text-xl text-secondary mb-12">
+      Reusable UI components used throughout the site.
+    </p>
+
+    <section class="mb-16">
+      <h2>Buttons</h2>
+      <p class="mb-6">Buttons come in two variants: primary and secondary.</p>
+      
+      <div class="p-8 bg-surface rounded-lg border border-border">
+        <div class="flex gap-4 flex-wrap items-center mb-6">
+          <Button variant="primary" label="Primary Button" />
+          <Button variant="secondary" label="Secondary Button" />
+        </div>
+        
+        <details class="mt-6">
+          <summary class="cursor-pointer text-primary hover:underline">View Code</summary>
+          <pre class="mt-4 p-4 bg-black/10 dark:bg-black/40 rounded overflow-x-auto text-sm"><code>&lt;Button variant="primary" label="Primary Button" /&gt;
+&lt;Button variant="secondary" label="Secondary Button" /&gt;</code></pre>
+        </details>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Hero Banner</h2>
+      <p class="mb-6">The hero banner component displays a large heading, description, and optional action buttons.</p>
+      
+      <div class="p-8 bg-surface rounded-lg border border-border">
+        <HeroBanner 
+          title="Hero Banner Title"
+          description="This is a description that provides context about the content below."
+          primaryButton={{ label: "Get Started" }}
+          secondaryButton={{ label: "Learn More" }}
+        />
+        
+        <details class="mt-6">
+          <summary class="cursor-pointer text-primary hover:underline">View Code</summary>
+          <pre class="mt-4 p-4 bg-black/10 dark:bg-black/40 rounded overflow-x-auto text-sm"><code>&lt;HeroBanner 
+  title="Hero Banner Title"
+  description="Description text"
+  primaryButton=&#123;&#123; label: "Get Started" &#125;&#125;
+  secondaryButton=&#123;&#123; label: "Learn More" &#125;&#125;
+/&gt;</code></pre>
+        </details>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Component Guidelines</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Use <strong>Button</strong> component instead of raw <code>&lt;button&gt;</code> tags for consistency</li>
+        <li>All components emit custom events that can be listened to by parent components</li>
+        <li>Components automatically adapt to dark mode through CSS variables</li>
+      </ul>
+    </section>
+</StyleguideLayout>

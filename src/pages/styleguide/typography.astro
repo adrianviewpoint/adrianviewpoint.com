@@ -1,0 +1,69 @@
+---
+import StyleguideLayout from '../../layouts/StyleguideLayout.astro';
+---
+
+<StyleguideLayout title="Typography">
+  <h1>Typography</h1>
+    
+    <p class="text-xl text-secondary mb-12">
+      Our typography system uses a clear hierarchy to establish visual relationships.
+    </p>
+
+    <section class="mb-16">
+      <h2>Headings</h2>
+      <p class="mb-8">All headings are defined globally in <code class="bg-surface px-2 py-1 rounded">global.css</code> for consistency.</p>
+      
+      <div class="space-y-8">
+        <div class="p-6 bg-surface rounded-lg border border-border">
+          <h1>Heading 1</h1>
+          <code class="text-sm text-secondary">text-5xl md:text-6xl font-bold</code>
+        </div>
+
+        <div class="p-6 bg-surface rounded-lg border border-border">
+          <h2>Heading 2</h2>
+          <code class="text-sm text-secondary">text-4xl md:text-5xl font-bold</code>
+        </div>
+
+        <div class="p-6 bg-surface rounded-lg border border-border">
+          <h3>Heading 3</h3>
+          <code class="text-sm text-secondary">text-2xl md:text-3xl font-semibold</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Body Text</h2>
+      <div class="space-y-6">
+        <div class="p-6 bg-surface rounded-lg border border-border">
+          <p class="mb-4">
+            This is regular paragraph text. It uses the default text color and size for optimal readability.
+          </p>
+          <code class="text-sm text-secondary">Default paragraph styling</code>
+        </div>
+
+        <div class="p-6 bg-surface rounded-lg border border-border">
+          <p class="text-xl">
+            This is large paragraph text, often used for introductions or descriptions.
+          </p>
+          <code class="text-sm text-secondary">text-xl</code>
+        </div>
+
+        <div class="p-6 bg-surface rounded-lg border border-border">
+          <p class="text-secondary">
+            This is secondary text, used for supporting information.
+          </p>
+          <code class="text-sm text-secondary">text-secondary</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Code & Monospace</h2>
+      <div class="p-6 bg-surface rounded-lg border border-border">
+        <code class="bg-black/10 dark:bg-black/40 px-3 py-2 rounded text-sm">inline code example</code>
+        <pre class="mt-4 p-4 bg-black/10 dark:bg-black/40 rounded overflow-x-auto"><code>// Code block example
+const example = "Hello World";
+console.log(example);</code></pre>
+      </div>
+    </section>
+</StyleguideLayout>

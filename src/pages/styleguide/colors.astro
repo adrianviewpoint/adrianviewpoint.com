@@ -1,0 +1,75 @@
+---
+import StyleguideLayout from '../../layouts/StyleguideLayout.astro';
+import Button from '../../components/Button.astro';
+---
+
+<StyleguideLayout title="Colors">
+  <h1>Colors</h1>
+    
+    <p class="text-xl text-secondary mb-12">
+      Our brand color palette and semantic color usage across the site.
+    </p>
+
+    <section class="mb-16">
+      <h2>Brand Colors</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="p-6 bg-primary text-white rounded-lg shadow-sm">
+          <div class="font-bold text-2xl mb-2">Primary</div>
+          <div class="text-sm opacity-90 mb-4">Burgundy</div>
+          <code class="text-xs block bg-black/20 p-2 rounded">var(--color-primary)</code>
+          <code class="text-xs block bg-black/20 p-2 rounded mt-1">#890000</code>
+        </div>
+        
+        <div class="p-6 bg-secondary text-white rounded-lg shadow-sm">
+          <div class="font-bold text-2xl mb-2">Secondary</div>
+          <div class="text-sm opacity-90 mb-4">Slate</div>
+          <code class="text-xs block bg-black/20 p-2 rounded">var(--color-secondary)</code>
+          <code class="text-xs block bg-black/20 p-2 rounded mt-1">#565264</code>
+        </div>
+        
+        <div class="p-6 bg-surface text-primary border border-border rounded-lg shadow-sm">
+          <div class="font-bold text-2xl mb-2">Surface</div>
+          <div class="text-sm opacity-90 mb-4">Beige</div>
+          <code class="text-xs block bg-black/10 p-2 rounded">var(--color-surface)</code>
+          <code class="text-xs block bg-black/10 p-2 rounded mt-1">#d6cfcb</code>
+        </div>
+
+        <div class="p-6 bg-accent text-white rounded-lg shadow-sm">
+          <div class="font-bold text-2xl mb-2">Accent</div>
+          <div class="text-sm opacity-90 mb-4">Charcoal</div>
+          <code class="text-xs block bg-black/20 p-2 rounded">var(--color-accent)</code>
+          <code class="text-xs block bg-black/20 p-2 rounded mt-1">#36342e</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Text Colors</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white dark:bg-surface border border-border rounded-lg shadow-sm">
+          <div class="text-primary font-bold text-2xl mb-2">Text Primary</div>
+          <p class="text-primary mb-4">Used for main headings and important text</p>
+          <code class="text-xs block bg-gray-100 dark:bg-black/20 p-2 rounded text-gray-800 dark:text-gray-200">var(--color-text-primary)</code>
+        </div>
+
+        <div class="p-6 bg-white dark:bg-surface border border-border rounded-lg shadow-sm">
+          <div class="text-secondary font-bold text-2xl mb-2">Text Secondary</div>
+          <p class="text-secondary mb-4">Used for body text and descriptions</p>
+          <code class="text-xs block bg-gray-100 dark:bg-black/20 p-2 rounded text-gray-800 dark:text-gray-200">var(--color-text-secondary)</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Usage Examples</h2>
+      <div class="space-y-6">
+        <div class="p-6 bg-surface border border-border rounded-lg">
+          <h3 class="mb-4">Buttons</h3>
+          <div class="flex gap-4 flex-wrap">
+            <Button variant="primary" label="Primary Button" />
+            <Button variant="secondary" label="Secondary Button" />
+          </div>
+        </div>
+      </div>
+    </section>
+</StyleguideLayout>
