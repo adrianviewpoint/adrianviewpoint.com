@@ -43,3 +43,6 @@ body {
   color: var(--color-text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+h1 {
+  @apply text-5xl md:text-6xl font-bold mb-6 text-primary;
+}
