@@ -1,6 +1,7 @@
 ---
 import StyleguideLayout from '../../layouts/StyleguideLayout.astro';
 import Button from '../../components/Button.astro';
+import ColorCard from '../../components/ColorCard.astro';
 ---
 
 <StyleguideLayout title="Colors">
@@ -13,37 +14,47 @@ import Button from '../../components/Button.astro';
     <section class="mb-16">
       <h2>Brand Colors</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div class="p-6 bg-primary text-white rounded-lg shadow-sm">
-          <div class="font-bold text-2xl mb-2">Primary</div>
-          <div class="text-sm opacity-90 mb-4">Burgundy</div>
-          <code class="text-xs block bg-black/20 p-2 rounded">var(--color-primary)</code>
-          <code class="text-xs block bg-black/20 p-2 rounded mt-1">#890000</code>
-        </div>
+        <ColorCard 
+          name="Primary"
+          description="Burgundy"
+          cssVar="var(--color-primary)"
+          hexValue="#890000"
+          bgClass="bg-primary"
+          textClass="text-white"
+        />
         
-        <div class="p-6 bg-secondary text-white rounded-lg shadow-sm">
-          <div class="font-bold text-2xl mb-2">Secondary</div>
-          <div class="text-sm opacity-90 mb-4">Slate</div>
-          <code class="text-xs block bg-black/20 p-2 rounded">var(--color-secondary)</code>
-          <code class="text-xs block bg-black/20 p-2 rounded mt-1">#565264</code>
-        </div>
+        <ColorCard 
+          name="Secondary"
+          description="Slate"
+          cssVar="var(--color-secondary)"
+          hexValue="#565264"
+          bgClass="bg-secondary"
+          textClass="text-white"
+        />
         
-        <div class="p-6 bg-surface text-primary border border-border rounded-lg shadow-sm">
-          <div class="font-bold text-2xl mb-2">Surface</div>
-          <div class="text-sm opacity-90 mb-4">Beige</div>
-          <code class="text-xs block bg-black/10 p-2 rounded">var(--color-surface)</code>
-          <code class="text-xs block bg-black/10 p-2 rounded mt-1">#d6cfcb</code>
-        </div>
+        <ColorCard 
+          name="Surface"
+          description="Beige"
+          cssVar="var(--color-surface)"
+          hexValue="#d6cfcb"
+          bgClass="bg-surface"
+          textClass="text-primary"
+          borderClass="border border-border"
+          codeBlockOpacity={10}
+        />
 
-        <div class="p-6 bg-accent text-white rounded-lg shadow-sm">
-          <div class="font-bold text-2xl mb-2">Accent</div>
-          <div class="text-sm opacity-90 mb-4">Charcoal</div>
-          <code class="text-xs block bg-black/20 p-2 rounded">var(--color-accent)</code>
-          <code class="text-xs block bg-black/20 p-2 rounded mt-1">#36342e</code>
-        </div>
+        <ColorCard 
+          name="Accent"
+          description="Charcoal"
+          cssVar="var(--color-accent)"
+          hexValue="#36342e"
+          bgClass="bg-accent"
+          textClass="text-white"
+        />
       </div>
     </section>
 
-    <section class="mb-16">
+    <!-- <section class="mb-16">
       <h2>Text Colors</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="p-6 bg-white dark:bg-surface border border-border rounded-lg shadow-sm">
@@ -71,5 +82,5 @@ import Button from '../../components/Button.astro';
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 </StyleguideLayout>
