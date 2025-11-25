@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname;
 
 <header class={`sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm ${extraClass}`.trim()}>
   <!-- Skip to content link for screen readers for accessibility purposes -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-background border px-2 py-1 rounded shadow z-60">Skip to content</a>
+  <a href="#main" aria-label="Skip to main content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-background border px-2 py-1 rounded shadow z-60">Skip to content</a>
   <nav aria-label="Main navigation" class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
       <a href="/" class="text-xl font-bold text-primary hover:opacity-80 transition-opacity">
