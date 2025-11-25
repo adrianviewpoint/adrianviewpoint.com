@@ -20,11 +20,20 @@ const {
   borderClass = '',
   codeBlockOpacity = 20
 } = Astro.props;
+
+// Map opacity values to complete Tailwind classes
+// This ensures Tailwind includes these classes in the production build
+const opacityClassMap: Record<number, string> = {
+  10: 'bg-black/10',
+  20: 'bg-black/20'
+};
+
+const codeBlockBgClass = opacityClassMap[codeBlockOpacity] || 'bg-black/20';
 ---
 
 <div class={`p-6 ${bgClass} ${textClass} ${borderClass} rounded-lg shadow-sm`}>
   <div class="font-bold text-2xl mb-2">{name}</div>
   <div class="text-sm opacity-90 mb-4">{description}</div>
-  <code class={`text-xs block bg-black/${codeBlockOpacity} p-2 rounded`}>{cssVar}</code>
-  <code class={`text-xs block bg-black/${codeBlockOpacity} p-2 rounded mt-1`}>{hexValue}</code>
+  <code class={`text-xs block p-2 rounded ${codeBlockBgClass}`}>{cssVar}</code>
+  <code class={`text-xs block p-2 rounded mt-1 ${codeBlockBgClass}`}>{hexValue}</code>
 </div>
