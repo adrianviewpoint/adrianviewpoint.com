@@ -15,40 +15,49 @@ import ColorCard from '../../components/ColorCard.astro';
       <h2>Brand Colors</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <ColorCard 
-          name="Primary"
-          description="Burgundy"
-          cssVar="var(--color-primary)"
+          name="Charcoal"
+          description=""
+          cssVar="var(--color-brand-charcoal)"
+          hexValue="#36342e"
+          bgClass="bg-brand-charcoal"
+          textClass="text-white"
+        />
+        
+        <ColorCard 
+          name="Burgundy"
+          description=""
+          cssVar="var(--color-brand-burgundy)"
           hexValue="#890000"
-          bgClass="bg-primary"
+          bgClass="bg-brand-burgundy"
           textClass="text-white"
         />
-        
+
         <ColorCard 
-          name="Secondary"
-          description="Slate"
-          cssVar="var(--color-secondary)"
+          name="Slate"
+          description=""
+          cssVar="var(--color-brand-slate)"
           hexValue="#565264"
-          bgClass="bg-secondary"
+          bgClass="bg-brand-slate"
           textClass="text-white"
         />
         
         <ColorCard 
-          name="Surface"
-          description="Beige"
-          cssVar="var(--color-surface)"
+          name="Beige"
+          description=""
+          cssVar="var(--color-brand-beige)"
           hexValue="#d6cfcb"
-          bgClass="bg-surface"
+          bgClass="bg-brand-beige"
           textClass="text-primary"
           borderClass="border border-border"
           codeBlockOpacity={10}
         />
 
         <ColorCard 
-          name="Accent"
-          description="Charcoal"
-          cssVar="var(--color-accent)"
-          hexValue="#36342e"
-          bgClass="bg-accent"
+          name="Gray"
+          description=""
+          cssVar="var(--color-brand-gray)"
+          hexValue="#707070"
+          bgClass="bg-brand-gray"
           textClass="text-white"
         />
       </div>
