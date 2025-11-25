@@ -14,7 +14,8 @@ const navItems = [
   { label: 'Components', href: '/styleguide/components' },
 ];
 
-const currentPath = Astro.url.pathname;
+// Normalize path by removing trailing slash for comparison
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <Layout title={`${title} - Style Guide`}>
