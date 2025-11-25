@@ -1,6 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
+
+// Get featured articles
+const allArticles = await getCollection('articles');
+const teslaArticle = allArticles.find(article => article.slug === 'tesla-energy');
+const gettingStartedArticle = allArticles.find(article => article.slug === 'getting-started-challenge');
 ---
 
 <Layout title="Welcome to Adrian Viewpoint">
@@ -22,71 +28,71 @@ import HeroBanner from '../components/HeroBanner.astro';
     <section class="mb-20">
       <h2 class="text-3xl font-bold mb-8 text-primary">Featured Articles</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Article 1 -->
-        <article class="bg-surface border border-border rounded-lg overflow-hidden hover:border-primary transition-colors group">
-          <div class="aspect-video bg-linear-to-br from-brand-burgundy to-brand-slate"></div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3">
-              <span class="inline-block bg-brand-burgundy text-white px-3 py-1 rounded-full text-xs font-semibold">
-                Code
-              </span>
-              <span class="text-sm text-muted">5 min read</span>
+        {gettingStartedArticle && (
+          <article class="bg-surface border border-border rounded-lg overflow-hidden hover:border-accent transition-colors group">
+            {gettingStartedArticle.data.image && (
+              <a href={`/articles/${gettingStartedArticle.slug}`}>
+                <img 
+                  src={gettingStartedArticle.data.image} 
+                  alt={gettingStartedArticle.data.title}
+                  class="w-full aspect-video object-cover"
+                />
+              </a>
+            )}
+            <div class="p-6">
+              <div class="flex gap-2 mb-3">
+                <span class="inline-block bg-brand-charcoal text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Personal Development
+                </span>
+                <span class="text-sm text-muted">
+                  {gettingStartedArticle.data.readingTime}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-primary group-hover:text-secondary transition-colors">
+                {gettingStartedArticle.data.title}
+              </h3>
+              <p class="text-secondary mb-4">
+                {gettingStartedArticle.data.description}
+              </p>
+              <a href={`/articles/${gettingStartedArticle.slug}`} class="text-primary font-semibold hover:text-secondary transition-colors">
+                Read more →
+              </a>
             </div>
-            <h3 class="text-xl font-bold mb-2 text-primary group-hover:text-secondary transition-colors">
-              Building Scalable Web Apps with Astro
-            </h3>
-            <p class="text-secondary mb-4">
-              Discover how to leverage Astro's island architecture to create lightning-fast, SEO-friendly websites that scale.
-            </p>
-            <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors">
-              Read more →
-            </a>
-          </div>
-        </article>
+          </article>
+        )}
 
-        <!-- Article 2 -->
-        <article class="bg-surface border border-border rounded-lg overflow-hidden hover:border-secondary transition-colors group">
-          <div class="aspect-video bg-linear-to-br from-brand-slate to-brand-gray"></div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3">
-              <span class="inline-block bg-brand-slate text-white px-3 py-1 rounded-full text-xs font-semibold">
-                Money & Investing
-              </span>
-              <span class="text-sm text-muted">7 min read</span>
+        {teslaArticle && (
+          <article class="bg-surface border border-border rounded-lg overflow-hidden hover:border-secondary transition-colors group">
+            {teslaArticle.data.image && (
+              <a href={`/articles/${teslaArticle.slug}`}>
+                <img 
+                  src={teslaArticle.data.image} 
+                  alt={teslaArticle.data.title}
+                  class="w-full aspect-video object-cover"
+                />
+              </a>
+            )}
+            <div class="p-6">
+              <div class="flex gap-2 mb-3">
+                <span class="inline-block bg-brand-slate text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Money & Investing
+                </span>
+                <span class="text-sm text-muted">
+                  {teslaArticle.data.readingTime}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-primary group-hover:text-secondary transition-colors">
+                {teslaArticle.data.title}
+              </h3>
+              <p class="text-secondary mb-4">
+                {teslaArticle.data.description}
+              </p>
+              <a href={`/articles/${teslaArticle.slug}`} class="text-primary font-semibold hover:text-secondary transition-colors">
+                Read more →
+              </a>
             </div>
-            <h3 class="text-xl font-bold mb-2 text-primary group-hover:text-secondary transition-colors">
-              Smart Budgeting for Tech Professionals
-            </h3>
-            <p class="text-secondary mb-4">
-              Learn proven strategies to manage your income, save effectively, and invest wisely in the tech industry.
-            </p>
-            <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors">
-              Read more →
-            </a>
-          </div>
-        </article>
-
-        <!-- Article 3 -->
-        <article class="bg-surface border border-border rounded-lg overflow-hidden hover:border-accent transition-colors group">
-          <div class="aspect-video bg-linear-to-br from-brand-charcoal to-brand-beige"></div>
-          <div class="p-6">
-            <div class="flex gap-2 mb-3">
-              <span class="inline-block bg-brand-charcoal text-white px-3 py-1 rounded-full text-xs font-semibold">
-                Personal development
-              </span>
-              <span class="text-sm text-muted">6 min read</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2 text-primary group-hover:text-secondary transition-colors">
-              AI and the Future of Development
-            </h3>
-            <p class="text-secondary mb-4">
-              Explore how artificial intelligence is reshaping software development and what it means for your career.
-            </p>
-            <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors">
-              Read more →
-            </a>
-          </div>
-        </article>
+          </article>
+        )}
       </div>
     </section>
 

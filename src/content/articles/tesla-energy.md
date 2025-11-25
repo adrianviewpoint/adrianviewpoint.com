@@ -4,6 +4,7 @@ date: 2025-06-16
 description: Exploring Tesla's energy initiatives beyond cars.
 image: /images/tesla-energy/energy-tesla.jpg
 xUrl: https://x.com/adrianviewpoint/status/1934647148030595371
+readingTime: 1 minute
 ---
 
 I know we **finally** hear more and more people acknowledge Tesla being more than a car company, with ride sharing robotaxis and the Optimus bot.

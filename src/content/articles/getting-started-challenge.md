@@ -4,6 +4,7 @@ date: 2025-07-15
 description: Overcome the challenge of getting started by redefining the starting line
 image: /images/getting-started-challenge/if-not-now-when.png
 xUrl: https://x.com/adrianviewpoint/status/1945303876791624028
+readingTime: 3 minutes
 ---
 
 Starting a new project or pursuing a creative endeavor can be an exhilarating experience. Ideas flow freely, and the possibilities seem endless. However, the true test lies in transforming those ideas into reality. While many individuals are brimming with innovative concepts, only a select few manage to break free from the ideation stage and actively develop and refine their ideas. The daunting task of bridging the gap between imagination and execution often proves to be the greatest hurdle, leading many to freeze in their tracks or abandon their aspirations altogether. The monumental effort required to even reach the starting line can be disheartening. If you've ever encountered this challenge, you're not alone — I've experienced it myself on numerous occasions. But fear not, for there are strategies to overcome this initial inertia and embark on a journey of fruitful productivity.
