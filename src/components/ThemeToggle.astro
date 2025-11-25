@@ -2,70 +2,156 @@
 // Theme Toggle Component
 ---
 
-<button
-  id="theme-toggle"
-  class="rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-  aria-label="Toggle theme"
->
-  <svg
-    id="theme-toggle-dark-icon"
-    class="hidden w-5 h-5"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
+<div class="relative inline-block md:mr-0">
+  <select
+    id="theme-select"
+    class="appearance-none rounded-lg pl-10 pr-8 py-2 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    aria-label="Select theme"
   >
-    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-  </svg>
-  <svg
-    id="theme-toggle-light-icon"
-    class="hidden w-5 h-5"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-      fill-rule="evenodd"
-      clip-rule="evenodd"></path>
-  </svg>
-</button>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+    <option value="system">System</option>
+  </select>
+  
+  <!-- Icon container positioned absolutely -->
+  <div class="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-none">
+    <!-- Moon icon (dark mode) -->
+    <svg
+      id="theme-icon-dark"
+      class="hidden w-5 h-5"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+    </svg>
+    
+    <!-- Sun icon (light mode) -->
+    <svg
+      id="theme-icon-light"
+      class="hidden w-5 h-5"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+        fill-rule="evenodd"
+        clip-rule="evenodd"></path>
+    </svg>
+
+    <!-- System icon (system preference) - Combined sun and moon -->
+    <svg
+      id="theme-icon-system"
+      class="hidden w-5 h-5"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Half sun (left side) -->
+      <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1z"></path>
+      <path d="M10 6a4 4 0 000 8z"></path>
+      <path d="M5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707z"></path>
+      <path d="M4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+      <path d="M6.464 14.95l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z"></path>
+      <path d="M10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"></path>
+      <!-- Half moon (right side) -->
+      <path d="M10 6a4 4 0 014 4 4 4 0 01-4 4 4.5 4.5 0 003-3.746A4.5 4.5 0 0010 6z" opacity="0.7"></path>
+    </svg>
+  </div>
+  
+  <!-- Dropdown chevron -->
+  <div class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </div>
+</div>
 
 <script>
-  // Theme toggle logic
-  const themeToggle = document.getElementById('theme-toggle');
-  const darkIcon = document.getElementById('theme-toggle-dark-icon');
-  const lightIcon = document.getElementById('theme-toggle-light-icon');
+  // Theme toggle logic with system (system preference) support
+  const themeSelect = document.getElementById('theme-select') as HTMLSelectElement;
+  const darkIcon = document.getElementById('theme-icon-dark');
+  const lightIcon = document.getElementById('theme-icon-light');
+  const systemIcon = document.getElementById('theme-icon-system');
 
-  // Check for saved theme preference or default to system preference
+  // Get system preference
+  const getSystemPreference = () => {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  // Check for saved theme preference or default to 'system'
   const getThemePreference = () => {
     if (typeof localStorage !== 'undefined') {
       const saved = localStorage.getItem('theme');
       if (saved) {
-        return saved;
+        return saved; // Can be 'light', 'dark', or 'system'
       }
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'system'; // Default to system mode
   };
 
-  const setTheme = (theme: string) => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+  // Update the UI icons based on current theme
+  const updateIcons = (theme: string) => {
+    // Hide all icons first
+    darkIcon?.classList.add('hidden');
+    lightIcon?.classList.add('hidden');
+    systemIcon?.classList.add('hidden');
+
+    // Show the appropriate icon
+    if (theme === 'system') {
+      systemIcon?.classList.remove('hidden');
+    } else if (theme === 'dark') {
+      darkIcon?.classList.remove('hidden');
+    } else {
       lightIcon?.classList.remove('hidden');
-      darkIcon?.classList.add('hidden');
+    }
+  };
+
+  // Apply the theme to the document
+  const applyTheme = (theme: string) => {
+    const actualTheme = theme === 'system' ? getSystemPreference() : theme;
+    
+    if (actualTheme === 'dark') {
+      document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
-      darkIcon?.classList.remove('hidden');
-      lightIcon?.classList.add('hidden');
     }
-    localStorage.setItem('theme', theme);
+    
+    updateIcons(theme);
+    
+    // Update select value
+    if (themeSelect) {
+      themeSelect.value = theme;
+    }
+  };
+
+  // Set theme and save to localStorage (or remove if system)
+  const setTheme = (theme: string) => {
+    if (theme === 'system') {
+      localStorage.removeItem('theme');
+    } else {
+      localStorage.setItem('theme', theme);
+    }
+    applyTheme(theme);
   };
 
   // Set initial theme
-  setTheme(getThemePreference());
+  const initialTheme = getThemePreference();
+  applyTheme(initialTheme);
 
-  // Toggle theme on button click
-  themeToggle?.addEventListener('click', () => {
-    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  // Handle dropdown change
+  themeSelect?.addEventListener('change', (e) => {
+    const target = e.target as HTMLSelectElement;
+    setTheme(target.value);
+  });
+
+  // Listen for system theme changes when in system mode
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  mediaQuery.addEventListener('change', (e) => {
+    const currentTheme = getThemePreference();
+    if (currentTheme === 'system') {
+      applyTheme('system');
+    }
   });
 </script>

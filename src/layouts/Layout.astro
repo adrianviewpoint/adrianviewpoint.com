@@ -32,11 +32,15 @@ const navLinks = [
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return 'auto'; // Default to auto mode (system preference)
       };
       
       const theme = getThemePreference();
-      if (theme === 'dark') {
+      const actualTheme = theme === 'auto' 
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : theme;
+      
+      if (actualTheme === 'dark') {
         document.documentElement.classList.add('dark');
       }
     </script>
