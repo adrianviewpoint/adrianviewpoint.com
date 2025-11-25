@@ -1,0 +1,48 @@
+---
+// src/pages/articles/[slug].astro
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+let postId = null;
+if (article.data.xUrl) {
+  postId = new URL(article.data.xUrl).pathname.split('/').pop();
+}
+---
+
+<Layout title={`${article.data.title} | Adrian Viewpoint`}>
+  <article class="container mx-auto px-4 pt-20 pb-12 max-w-4xl">
+    {article.data.image && (
+      <img src={article.data.image} alt={article.data.title} class="w-full h-64 object-cover rounded-xl mb-10 shadow-md" />
+    )}
+    <h1 class="text-4xl font-bold mb-4 text-accent">{article.data.title}</h1>
+    <p class="text-sm text-secondary mb-8">Published: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(article.data.date))}</p>
+    <div class="prose prose-lg prose-primary text-text-dark max-w-none mb-12">
+      <Content />
+    </div>
+    {postId && (
+      <div class="bg-light p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4 text-accent">Engage on 𝕏</h3>
+        <p class="text-neutral mb-6">I'd love to hear your thoughts! Like or leave a comment on the article.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={`https://x.com/intent/like?tweet_id=${postId}`} target="_blank" rel="noopener noreferrer" class="block text-center bg-black text-white py-2 px-4 rounded-md hover:bg-opacity-90 hover:scale-105 transition-all duration-300">
+            Like on 𝕏
+          </a>
+          <a href={`https://x.com/intent/tweet?in_reply_to=${postId}`} target="_blank" rel="noopener noreferrer" class="block text-center border border-black text-black py-2 px-4 rounded-md hover:bg-black hover:text-white transition-colors duration-300">
+            Comment on 𝕏
+          </a>
+        </div>
+      </div>
+    )}
+  </article>
+</Layout>

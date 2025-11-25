@@ -1,0 +1,41 @@
+---
+// src/pages/articles/index.astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const articles = await getCollection('articles');
+---
+
+<Layout title="Articles | Adrian Viewpoint">
+  <section class="container mx-auto px-4 pt-20 pb-12">
+    <h1 class="text-4xl font-bold text-center mb-12 text-accent">Latest Articles</h1>
+    <div class="flex flex-wrap justify-center gap-8">
+      {articles.map((article) => (
+        <div class="bg-light rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-md">
+          <a href={`/articles/${article.slug}`} class="block">
+            {article.data.image && (
+              <img src={article.data.image} alt={article.data.title} class="w-full h-48 object-cover hover:opacity-90 transition-opacity duration-300" />
+            )}
+          </a>
+          <div class="p-6">
+            <a href={`/articles/${article.slug}`} class="block">
+              <h2 class="text-2xl font-semibold mb-2 text-accent hover:underline">{article.data.title}</h2>
+            </a>
+            <p class="text-neutral mb-4">{article.data.description}</p>
+            <span class="text-sm text-primary mb-4 block">Published: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(article.data.date))}</span>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href={`/articles/${article.slug}`} class="block text-center bg-accent text-white py-2 px-4 rounded-md hover:bg-opacity-90 hover:scale-105 transition-all duration-300">
+                Read Article
+              </a>
+              {article.data.xUrl && (
+                <a href={article.data.xUrl} target="_blank" rel="noopener noreferrer" class="block text-center border border-black text-black py-2 px-4 rounded-md hover:bg-black hover:text-white transition-colors duration-300">
+                  Read on 𝕏
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
