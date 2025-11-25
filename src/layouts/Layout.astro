@@ -45,14 +45,14 @@ const navLinks = [
       }
     </script> -->
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen flex flex-col">
     <SiteHeader links={navLinks} />
     
-    <main id="main">
+    <main id="main" class="grow">
       <slot />
     </main>
     
-    <footer class="border-t border-border mt-auto">
+    <footer class="border-t border-border">
       <div class="container mx-auto px-4 py-8 text-center text-secondary">
         <p>&copy; {new Date().getFullYear()} Adrian Viewpoint. All rights reserved.</p>
       </div>
