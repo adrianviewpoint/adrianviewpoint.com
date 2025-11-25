@@ -27,7 +27,7 @@ const navLinks = [
     <title>{title}</title>
     
     <!-- Prevent FOUC (Flash of Unstyled Content) -->
-    <script is:inline>
+    <!-- <script is:inline>
       const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
@@ -43,7 +43,7 @@ const navLinks = [
       if (actualTheme === 'dark') {
         document.documentElement.classList.add('dark');
       }
-    </script>
+    </script> -->
   </head>
   <body class="min-h-screen">
     <SiteHeader links={navLinks} />
