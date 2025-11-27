@@ -47,8 +47,7 @@ import ColorCard from '../../components/ColorCard.astro';
           cssVar="var(--color-brand-beige)"
           hexValue="#d6cfcb"
           bgClass="bg-brand-beige"
-          textClass="text-primary"
-          borderClass="border border-border"
+          textClass="text-black"
           codeBlockOpacity={10}
         />
 
@@ -60,6 +59,210 @@ import ColorCard from '../../components/ColorCard.astro';
           bgClass="bg-brand-gray"
           textClass="text-white"
         />
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Semantic Colors - Light Mode</h2>
+      <!-- Container (Background) -->
+      <div class="rounded-lg border-2 border-border mb-6 overflow-hidden">
+        <div class="bg-background text-text-primary p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <div class="font-semibold text-lg">Container (Background)</div>
+              <p class="text-text-secondary text-sm">Used as the page background</p>
+            </div>
+            <div class="text-right shrink-0 ml-4">
+              <code class="text-xs bg-black/10 px-2 py-1 rounded block mb-1">var(--color-background)</code>
+              <code class="text-xs bg-black/10 px-2 py-1 rounded block">#f5f5f5</code>
+            </div>
+          </div>
+          <!-- Inner Surface -->
+          <div class="rounded-md border border-border bg-surface p-4">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <div class="font-medium">Inner Surface</div>
+                <p class="text-text-secondary text-sm">Cards, panels, and elevated areas.</p>
+              </div>
+              <div class="text-right shrink-0 ml-4">
+                <code class="text-xs bg-black/10 px-2 py-1 rounded block mb-1">var(--color-surface)</code>
+                <code class="text-xs bg-black/10 px-2 py-1 rounded block">#d6cfcb</code>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <ColorCard 
+                name="Primary"
+                description="Main brand action color"
+                cssVar="var(--color-primary)"
+                hexValue="#890000"
+                bgClass="bg-primary"
+                textClass="text-white"
+              />
+              <ColorCard 
+                name="Secondary"
+                description="Supporting accent color"
+                cssVar="var(--color-secondary)"
+                hexValue="#565264"
+                bgClass="bg-secondary"
+                textClass="text-white"
+              />
+              <ColorCard 
+                name="Accent"
+                description="Emphasis and highlights"
+                cssVar="var(--color-accent)"
+                hexValue="#36342e"
+                bgClass="bg-accent"
+                textClass="text-white"
+              />
+
+              <ColorCard 
+                name="Text Primary"
+                description="Default text color"
+                cssVar="var(--color-text-primary)"
+                hexValue="#36342e"
+                bgClass="bg-text-primary"
+                textClass="text-white"
+              />
+              <ColorCard 
+                name="Text Secondary"
+                description="Body and secondary text"
+                cssVar="var(--color-text-secondary)"
+                hexValue="#707070"
+                bgClass="bg-text-secondary"
+                textClass="text-white"
+              />
+              <ColorCard 
+                name="Text Muted"
+                description="Subtle captions and metadata"
+                cssVar="var(--color-text-muted)"
+                hexValue="#9ca3af"
+                bgClass="bg-text-muted"
+                textClass="text-white"
+              />
+
+              <ColorCard 
+                name="Border"
+                description="Default border color"
+                cssVar="var(--color-border)"
+                hexValue="#e5e7eb"
+                bgClass="bg-border"
+                textClass="text-black"
+              />
+              <ColorCard 
+                name="Border Muted"
+                description="Subtle borders and dividers"
+                cssVar="var(--color-border-muted)"
+                hexValue="#d6cfcb"
+                bgClass="bg-border-muted"
+                textClass="text-black"
+                borderClass='border-2 border-border'
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2>Semantic Colors - Dark Mode</h2>
+      <!-- Container (Background) in dark context -->
+      <div class="dark rounded-lg border-2 border-border mb-6 overflow-hidden">
+        <div class="bg-background text-text-primary p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <div class="font-semibold text-lg">Container (Background)</div>
+              <p class="text-text-secondary text-sm">Used as the page background</p>
+            </div>
+            <div class="text-right shrink-0 ml-4">
+              <code class="text-xs bg-black/10 px-2 py-1 rounded block mb-1">var(--color-background)</code>
+              <code class="text-xs bg-black/10 px-2 py-1 rounded block">#111111</code>
+            </div>
+          </div>
+          <!-- Inner Surface -->
+          <div class="rounded-md border border-border bg-surface p-4">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <div class="font-medium">Inner Surface</div>
+                <p class="text-text-secondary text-sm">Cards, panels, and elevated areas.</p>
+              </div>
+              <div class="text-right shrink-0 ml-4">
+                <code class="text-xs bg-black/10 px-2 py-1 rounded block mb-1">var(--color-surface)</code>
+                <code class="text-xs bg-black/10 px-2 py-1 rounded block">#36342e</code>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <ColorCard 
+                name="Primary"
+                description="Main brand action color"
+                cssVar="var(--color-primary)"
+                hexValue="#d6cfcb"
+                bgClass="bg-primary"
+                textClass="text-black"
+              />
+              <ColorCard 
+                name="Secondary"
+                description="Supporting accent color"
+                cssVar="var(--color-secondary)"
+                hexValue="#7672a0"
+                bgClass="bg-secondary"
+                textClass="text-white"
+              />
+              <ColorCard 
+                name="Accent"
+                description="Emphasis and highlights"
+                cssVar="var(--color-accent)"
+                hexValue="#565264"
+                bgClass="bg-accent"
+                textClass="text-white"
+              />
+
+              <ColorCard 
+                name="Text Primary"
+                description="Default text color"
+                cssVar="var(--color-text-primary)"
+                hexValue="#f5f5f5"
+                bgClass="bg-text-primary"
+                textClass="text-black"
+              />
+              <ColorCard 
+                name="Text Secondary"
+                description="Body and secondary text"
+                cssVar="var(--color-text-secondary)"
+                hexValue="#d6cfcb"
+                bgClass="bg-text-secondary"
+                textClass="text-black"
+              />
+              <ColorCard 
+                name="Text Muted"
+                description="Subtle captions and metadata"
+                cssVar="var(--color-text-muted)"
+                hexValue="#9ca3af"
+                bgClass="bg-text-muted"
+                textClass="text-white"
+              />
+
+              <ColorCard 
+                name="Border"
+                description="Default border color"
+                cssVar="var(--color-border)"
+                hexValue="#3f3f3f"
+                bgClass="bg-border"
+                textClass="text-white"
+              />
+              <ColorCard 
+                name="Border Muted"
+                description="Subtle borders and dividers"
+                cssVar="var(--color-border-muted)"
+                hexValue="#565264"
+                bgClass="bg-border-muted"
+                textClass="text-white"
+                borderClass='border-2 border-border'
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

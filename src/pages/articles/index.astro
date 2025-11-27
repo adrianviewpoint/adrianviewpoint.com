@@ -21,7 +21,7 @@ const articles = (await getCollection('articles')).sort((a, b) => {
           </a>
           <div class="p-6">
             <a href={`/articles/${article.slug}`} class="block">
-              <h2 class="text-2xl font-semibold mb-2 text-accent hover:underline">{article.data.title}</h2>
+              <h2 class="text-2xl! font-semibold! mb-2! hover:underline">{article.data.title}</h2>
             </a>
             <p class="text-neutral mb-4">{article.data.description}</p>
             <span class="text-sm text-primary mb-4 block">Published: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(new Date(article.data.date))}</span>

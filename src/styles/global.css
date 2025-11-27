@@ -28,9 +28,8 @@
 .dark {
   --color-background: #111111;
   --color-surface: var(--color-brand-charcoal);
-  /* Custom tints for better contrast in dark mode */
-  --color-primary: var(--color-brand-beige); /* #b30000; /* lighter burgundy */
-  --color-secondary: #7672a0; /* lighter slate */
+  --color-primary: var(--color-brand-beige); 
+  --color-secondary: #7672a0;
   --color-accent: var(--color-brand-slate);
   --color-text-primary: #f5f5f5;
   --color-text-secondary: var(--color-brand-beige);
@@ -49,4 +48,8 @@ body {
 /* Typography Defaults */
 h1 {
   @apply text-5xl md:text-6xl font-bold mb-6 text-primary;
+}
+
+h2 {
+  @apply text-3xl font-bold mb-8 text-primary;
 }
