@@ -1,95 +1,89 @@
 ---
 import StyleguideLayout from '../../layouts/StyleguideLayout.astro';
+import Container from '../../components/Container.astro';
 ---
 
 <StyleguideLayout title="Typography">
   <h1>Typography</h1>
     
-  <p class="text-xl text-secondary mb-12">
+  <p>
     A comprehensive showcase of all typography-related HTML elements organized by category.
   </p>
 
   <!-- Structural Elements -->
-  <section class="mb-16">
+  <section>
     <h2>Structural Elements</h2>
-    <p class="mb-8 text-secondary">Block-level elements that shape content flow and hierarchy.</p>
+    <p>Block-level elements that shape content flow and hierarchy.</p>
     
-    <div class="space-y-8">
-      <!-- Headings -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Headings (h1-h6)</h3>
-        <div class="space-y-3">
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <h5>Heading 5</h5>
-          <h6>Heading 6</h6>
+    <h3>Headings &lt;h1-6&gt;</h3>
+    <Container>
+      <div class="space-y-3">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </div>
+    </Container>
+
+    <h3>Paragraph &lt;p&gt;</h3>
+    <Container>
+      <p class="mb-4">
+        This is a paragraph element. It represents a block of text and is one of the most commonly used HTML elements. 
+        Paragraphs automatically add spacing before and after themselves to improve readability.
+      </p>
+      <p>
+        Multiple paragraphs are visually separated to create clear content boundaries and improve the reading experience.
+      </p>
+    </Container>
+
+    <h3>Lists &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</h3>
+    <Container>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="mb-2">Unordered List</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item
+              <ul class="list-circle list-inside ml-6 mt-1">
+                <li>Nested item</li>
+                <li>Another nested item</li>
+              </ul>
+            </li>
+          </ul>
         </div>
-      </div>
-
-      <!-- Paragraphs -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Paragraph &lt;p&gt;</h3>
-        <p class="mb-4">
-          This is a paragraph element. It represents a block of text and is one of the most commonly used HTML elements. 
-          Paragraphs automatically add spacing before and after themselves to improve readability.
-        </p>
-        <p>
-          Multiple paragraphs are visually separated to create clear content boundaries and improve the reading experience.
-        </p>
-      </div>
-
-      <!-- Lists -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Lists &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</h3>
         
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 class="mb-2">Unordered List</h4>
-            <ul class="list-disc list-inside space-y-1">
-              <li>First item</li>
-              <li>Second item</li>
-              <li>Third item
-                <ul class="list-circle list-inside ml-6 mt-1">
-                  <li>Nested item</li>
-                  <li>Another nested item</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">Ordered List</h4>
-            <ol class="list-decimal list-inside space-y-1">
-              <li>First step</li>
-              <li>Second step</li>
-              <li>Third step
-                <ol class="list-decimal list-inside ml-6 mt-1">
-                  <li>Sub-step A</li>
-                  <li>Sub-step B</li>
-                </ol>
-              </li>
-            </ol>
-          </div>
+        <div>
+          <h4 class="mb-2">Ordered List</h4>
+          <ol class="list-decimal list-inside space-y-1">
+            <li>First step</li>
+            <li>Second step</li>
+            <li>Third step
+              <ol class="list-decimal list-inside ml-6 mt-1">
+                <li>Sub-step A</li>
+                <li>Sub-step B</li>
+              </ol>
+            </li>
+          </ol>
         </div>
       </div>
+    </Container>
 
-      <!-- Definition Lists -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Definition List &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</h3>
-        <dl class="space-y-3">
-          <dt class="font-semibold">HTML</dt>
-          <dd class="ml-6 text-secondary">HyperText Markup Language - the standard markup language for web pages.</dd>
-          
-          <dt class="font-semibold">CSS</dt>
-          <dd class="ml-6 text-secondary">Cascading Style Sheets - used to describe the presentation of HTML documents.</dd>
-          
-          <dt class="font-semibold">JavaScript</dt>
-          <dd class="ml-6 text-secondary">A programming language that enables interactive web pages and dynamic content.</dd>
-        </dl>
-      </div>
-    </div>
+    <h3>Definition List &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</h3>
+    <Container>
+      <dl class="space-y-3">
+        <dt class="font-semibold">HTML</dt>
+        <dd class="ml-6 text-secondary">HyperText Markup Language - the standard markup language for web pages.</dd>
+        
+        <dt class="font-semibold">CSS</dt>
+        <dd class="ml-6 text-secondary">Cascading Style Sheets - used to describe the presentation of HTML documents.</dd>
+        
+        <dt class="font-semibold">JavaScript</dt>
+        <dd class="ml-6 text-secondary">A programming language that enables interactive web pages and dynamic content.</dd>
+      </dl>
+    </Container>
   </section>
 
   <!-- Inline Elements -->
@@ -97,124 +91,115 @@ import StyleguideLayout from '../../layouts/StyleguideLayout.astro';
     <h2>Inline Elements</h2>
     <p class="mb-8 text-secondary">Elements for emphasis and formatting within text.</p>
     
-    <div class="space-y-6">
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Emphasis &amp; Importance</h3>
-        <div class="space-y-3">
-          <p><em>&lt;em&gt;</em> - Emphasized text (semantic emphasis, typically italic)</p>
-          <p><strong>&lt;strong&gt;</strong> - Strong importance (semantic strong, typically bold)</p>
-          <p><i>&lt;i&gt;</i> - Idiomatic text (alternative voice or mood, typically italic)</p>
-          <p><b>&lt;b&gt;</b> - Bold text (stylistic offset, no semantic importance)</p>
-        </div>
+    <h3>Emphasis &amp; Importance</h3>
+    <Container>
+      <div class="space-y-3">
+        <p><em>&lt;em&gt;</em> - Emphasized text (semantic emphasis, typically italic)</p>
+        <p><strong>&lt;strong&gt;</strong> - Strong importance (semantic strong, typically bold)</p>
+        <p><i>&lt;i&gt;</i> - Idiomatic text (alternative voice or mood, typically italic)</p>
+        <p><b>&lt;b&gt;</b> - Bold text (stylistic offset, no semantic importance)</p>
       </div>
+    </Container>
 
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Text Modifications</h3>
-        <div class="space-y-3">
-          <p><small>&lt;small&gt;</small> - Smaller text (fine print, side comments)</p>
-          <p>E = mc<sup>2</sup> - &lt;sup&gt; Superscript text</p>
-          <p>H<sub>2</sub>O - &lt;sub&gt; Subscript text</p>
-          <p><ins>&lt;ins&gt;</ins> - Inserted text (underlined by default)</p>
-          <p><del>&lt;del&gt;</del> - Deleted text (strikethrough by default)</p>
-          <p><mark>&lt;mark&gt;</mark> - Highlighted/marked text</p>
-        </div>
+    <h3>Text Modifications</h3>
+    <Container>
+      <div class="space-y-3">
+        <p><small>&lt;small&gt;</small> - Smaller text (fine print, side comments)</p>
+        <p>E = mc<sup>2</sup> - &lt;sup&gt; Superscript text</p>
+        <p>H<sub>2</sub>O - &lt;sub&gt; Subscript text</p>
+        <p><ins>&lt;ins&gt;</ins> - Inserted text (underlined by default)</p>
+        <p><del>&lt;del&gt;</del> - Deleted text (strikethrough by default)</p>
+        <p><mark>&lt;mark&gt;</mark> - Highlighted/marked text</p>
       </div>
+    </Container>
 
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Abbreviations</h3>
-        <p>
-          The <abbr title="World Wide Web Consortium">W3C</abbr> is the main international standards organization for the 
-          <abbr title="World Wide Web">WWW</abbr>. Hover over abbreviations to see their full meaning.
-        </p>
-        <code class="text-sm text-secondary mt-2 block">&lt;abbr title="Full Text"&gt;SHORT&lt;/abbr&gt;</code>
-      </div>
-    </div>
+    <h3>Abbreviations</h3>
+    <Container>
+      <p>
+        The <abbr title="World Wide Web Consortium">W3C</abbr> is the main international standards organization for the 
+        <abbr title="World Wide Web">WWW</abbr>. Hover over abbreviations to see their full meaning.
+      </p>
+      <code class="text-sm text-secondary mt-2 block">&lt;abbr title="Full Text"&gt;SHORT&lt;/abbr&gt;</code>
+    </Container>
   </section>
 
   <!-- Specialized Elements -->
   <section class="mb-16">
     <h2>Specialized Elements</h2>
     <p class="mb-8 text-secondary">Elements for quotes, code, and metadata.</p>
-    
-    <div class="space-y-6">
-      <!-- Quotes -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Quotations</h3>
+
+    <h3>Quotations</h3>
+    <Container>
+      <div class="space-y-6">
+        <div>
+          <h4 class="mb-2">&lt;blockquote&gt; - Block Quotation</h4>
+          <blockquote class="border-l-4 border-primary pl-4 py-2 my-4 italic">
+            The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.
+            <footer class="mt-2 text-sm text-secondary not-italic">— Steve Jobs</footer>
+          </blockquote>
+        </div>
         
-        <div class="space-y-6">
-          <div>
-            <h4 class="mb-2">&lt;blockquote&gt; - Block Quotation</h4>
-            <blockquote class="border-l-4 border-primary pl-4 py-2 my-4 italic">
-              The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.
-              <footer class="mt-2 text-sm text-secondary not-italic">— Steve Jobs</footer>
-            </blockquote>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">&lt;q&gt; - Inline Quotation</h4>
-            <p>As Benjamin Franklin once said, <q>Tell me and I forget. Teach me and I remember. Involve me and I learn.</q></p>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">&lt;cite&gt; - Citation</h4>
-            <p>More information can be found in <cite>The Design of Everyday Things</cite> by Don Norman.</p>
-          </div>
+        <div>
+          <h4 class="mb-2">&lt;q&gt; - Inline Quotation</h4>
+          <p>As Benjamin Franklin once said, <q>Tell me and I forget. Teach me and I remember. Involve me and I learn.</q></p>
+        </div>
+        
+        <div>
+          <h4 class="mb-2">&lt;cite&gt; - Citation</h4>
+          <p>More information can be found in <cite>The Design of Everyday Things</cite> by Don Norman.</p>
         </div>
       </div>
+    </Container>
 
-      <!-- Code -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Code &amp; Computer Text</h3>
+    <h3>Code &amp; Computer Text</h3>
+    <Container>
+      <div class="space-y-6">
+        <div>
+          <h4 class="mb-2">&lt;code&gt; - Inline Code</h4>
+          <p>Use the <code class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded">console.log()</code> function to debug your JavaScript.</p>
+        </div>
         
-        <div class="space-y-6">
-          <div>
-            <h4 class="mb-2">&lt;code&gt; - Inline Code</h4>
-            <p>Use the <code class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded">console.log()</code> function to debug your JavaScript.</p>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">&lt;pre&gt; - Preformatted Text</h4>
-            <pre class="p-4 bg-black/10 dark:bg-black/40 rounded overflow-x-auto"><code>function greet(name) {'{'} 
+        <div>
+          <h4 class="mb-2">&lt;pre&gt; - Preformatted Text</h4>
+          <pre class="p-4 bg-black/10 dark:bg-black/40 rounded overflow-x-auto">
+<code>function greet(name) {'{'} 
   return `Hello, ${'${'}name{'}'}!`;
 {'}'}
 
 console.log(greet('World'));</code></pre>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">&lt;kbd&gt; - Keyboard Input</h4>
-            <p>Press <kbd class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded border border-border">Ctrl</kbd> + <kbd class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded border border-border">C</kbd> to copy.</p>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">&lt;samp&gt; - Sample Output</h4>
-            <p>The program returned: <samp class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded font-mono">Error 404: File not found</samp></p>
-          </div>
         </div>
-      </div>
-
-      <!-- Metadata -->
-      <div class="p-6 bg-surface rounded-lg border border-border">
-        <h3 class="mb-4">Metadata Elements</h3>
         
-        <div class="space-y-6">
-          <div>
-            <h4 class="mb-2">&lt;address&gt; - Contact Information</h4>
-            <address class="not-italic">
-              <strong>Adrian's Viewpoint</strong><br>
-              Email: <a href="mailto:contact@example.com" class="text-primary hover:underline">contact@example.com</a><br>
-              Website: <a href="https://adrianviewpoint.com" class="text-primary hover:underline">adrianviewpoint.com</a>
-            </address>
-          </div>
-          
-          <div>
-            <h4 class="mb-2">&lt;time&gt; - Date/Time</h4>
-            <p>Article published on <time datetime="2025-11-26" class="font-semibold">November 26, 2025</time></p>
-            <p>Meeting scheduled for <time datetime="2025-12-01T14:00" class="font-semibold">December 1, 2025 at 2:00 PM</time></p>
-          </div>
+        <div>
+          <h4 class="mb-2">&lt;kbd&gt; - Keyboard Input</h4>
+          <p>Press <kbd class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded border border-border">Ctrl</kbd> + <kbd class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded border border-border">C</kbd> to copy.</p>
+        </div>
+        
+        <div>
+          <h4 class="mb-2">&lt;samp&gt; - Sample Output</h4>
+          <p>The program returned: <samp class="bg-black/10 dark:bg-black/40 px-2 py-1 rounded font-mono">Error 404: File not found</samp></p>
         </div>
       </div>
-    </div>
+    </Container>
+
+    <h3>Metadata Elements</h3>
+    <Container>
+      <div class="space-y-6">
+        <div>
+          <h4 class="mb-2">&lt;address&gt; - Contact Information</h4>
+          <address class="not-italic">
+            <strong>Adrian's Viewpoint</strong><br>
+            Email: <a href="mailto:contact@example.com" class="text-primary hover:underline">contact@example.com</a><br>
+            Website: <a href="https://adrianviewpoint.com" class="text-primary hover:underline">adrianviewpoint.com</a>
+          </address>
+        </div>
+        
+        <div>
+          <h4 class="mb-2">&lt;time&gt; - Date/Time</h4>
+          <p>Article published on <time datetime="2025-11-26" class="font-semibold">November 26, 2025</time></p>
+          <p>Meeting scheduled for <time datetime="2025-12-01T14:00" class="font-semibold">December 1, 2025 at 2:00 PM</time></p>
+        </div>
+      </div>
+    </Container>
   </section>
 
   <!-- Combined Example -->
@@ -222,7 +207,7 @@ console.log(greet('World'));</code></pre>
     <h2>Real-World Example</h2>
     <p class="mb-8 text-secondary">A practical example combining multiple typography elements.</p>
     
-    <article class="p-6 bg-surface rounded-lg border border-border">
+    <Container as="article">
       <h3>Understanding Web Typography</h3>
       <p class="text-secondary"><time datetime="2025-11-26">November 26, 2025</time></p>
       
@@ -252,6 +237,6 @@ console.log(greet('World'));</code></pre>
       <p class="mt-4">
         <small>Last updated: <time datetime="2025-11-26">November 26, 2025</time></small>
       </p>
-    </article>
+    </Container>
   </section>
 </StyleguideLayout>
