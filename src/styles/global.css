@@ -53,3 +53,19 @@ h1 {
 h2 {
   @apply text-3xl font-bold mb-8 text-primary;
 }
+
+h3 {
+  @apply text-2xl font-semibold mb-4 text-accent;
+}
+
+h4 {
+  @apply text-xl font-semibold mb-3 text-secondary;
+}
+
+h5 {
+  @apply text-lg font-medium mb-3 text-text-primary;
+}
+
+h6 {
+  @apply text-base font-medium mb-2 text-text-secondary uppercase tracking-wide;
+}
